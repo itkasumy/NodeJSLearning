@@ -51,6 +51,16 @@ function server(req, res) {
 			res.write(data);
 			res.end();
 		});
+	} else if (pathname === '/clock') {
+		var counter = 1;
+		var timerId = setInterval(function () {
+			res.write(new Date().toString());
+			counter++;
+			if (counter === 5) {
+				clearInterval(timerId);
+				res.end();
+			}
+		}, 1000);
 	} else {
 		static(pathname, res);
 	}
