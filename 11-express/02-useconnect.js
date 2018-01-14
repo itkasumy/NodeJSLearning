@@ -55,6 +55,7 @@ app.use((req, res) => {
 });
 
 app.listen(8080);
+
 /* var server = http.createServer(app);
 server.listen(8080, () => {
 	console.log('server started at 8080');
