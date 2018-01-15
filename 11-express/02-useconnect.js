@@ -1,16 +1,17 @@
-var http = require('http');
-var url = require('url');
-var querystring = require('querystring');
+// var http = require('http');
+// var url = require('url');
+// var querystring = require('querystring');
 var connect = require('./02-connect');
 
 var app = connect();
 require('./02-middle')(app);
+require('./02-route')(app);
 
-var articles = {
+/* var articles = {
 	"1": "第一篇文章详情",
 	"2": "第二篇文章详情",
 	"3": "第三篇文章详情"
-};
+}; */
 
 /* app.use((req, res, next) => {
 	var urlObj = url.parse(req.url, true);
@@ -42,17 +43,17 @@ app.use((req, res, next) => {
 	}
 }); */
 
-app.use('/list', (req, res) => {
+/* app.use('/list', (req, res) => {
 	res.send('<ul><li><a href="/article?id=1">第一篇</a></li><li><a href="/article?id=2">第二篇</a></li><li><a href="/article?id=3">第三篇</a></li></ul>');
 });
 
-app.use('/', (req, res) => {
+app.use('/article', (req, res) => {
 	res.send(articles[req.query.id]);
 });
 
 app.use((req, res) => {
-	res.end('404');
-});
+	res.end('<h1>404</h1>');
+}); */
 
 app.listen(8080);
 
